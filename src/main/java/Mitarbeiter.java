@@ -1,5 +1,3 @@
-package java;
-
 public class Mitarbeiter {
     public int Firmenzugehoerigkeit;
     public String Abteilung;
@@ -36,10 +34,10 @@ public class Mitarbeiter {
         if (Firmenzugehoerigkeit >= 2) {
             //50%
             bonus = 50;
-        } else if (Firmenzugehoerigkeit > 4) {
+        } else if (Firmenzugehoerigkeit >= 4) {
             //80%
             bonus = 80;
-        } else if (Firmenzugehoerigkeit > 10) {
+        } else if (Firmenzugehoerigkeit >= 10) {
             //120%
             bonus = 120;
         } else if (Firmenzugehoerigkeit >= 0 && Firmenzugehoerigkeit < 2) {

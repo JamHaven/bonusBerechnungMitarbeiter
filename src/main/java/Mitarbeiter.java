@@ -3,33 +3,10 @@ public class Mitarbeiter {
     public String Abteilung;
     public int bonus;
 
-    public Mitarbeiter()  {
-        //Plausabilitaetspruefung(Firmenzugehoerigkeit);
-
-        //this.setAbteilung(Abteilung.toLowerCase());
-        //this.setFirmenzugehoerigkeit(Firmenzugehoerigkeit);
-    }
-
-    public int getFirmenzugehoerigkeit() {
-        return Firmenzugehoerigkeit;
-    }
-
-    public void setFirmenzugehoerigkeit(int firmenzugehoerigkeit) {
-        Firmenzugehoerigkeit = firmenzugehoerigkeit;
-    }
-
-    public String getAbteilung() {
-        return Abteilung;
-    }
-
-    public void setAbteilung(String abteilung) {
-        Abteilung = abteilung;
-    }
-
     public int calculateBonus( int Firmenzugehoerigkeit, String abteilung) throws Exception {
         bonus = 0;
         abteilung = abteilung.toLowerCase();
-        Plausabilitaetspruefung(Firmenzugehoerigkeit);
+        plausabilitaetspruefung(Firmenzugehoerigkeit);
 
         if (Firmenzugehoerigkeit >= 2 && Firmenzugehoerigkeit <4) {
             //50%
@@ -63,7 +40,7 @@ public class Mitarbeiter {
         return bonus;
     }
 
-    private void Plausabilitaetspruefung(int firmenzugehoerigkeit) throws Exception {
+    void plausabilitaetspruefung(int firmenzugehoerigkeit) throws Exception {
 
         if (firmenzugehoerigkeit>75 || firmenzugehoerigkeit <0 )
         {

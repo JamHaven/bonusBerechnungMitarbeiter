@@ -3,7 +3,7 @@ public class Mitarbeiter {
     public String Abteilung;
     public int bonus;
 
-    public Mitarbeiter() throws Exception {
+    public Mitarbeiter()  {
         //Plausabilitaetspruefung(Firmenzugehoerigkeit);
 
         //this.setAbteilung(Abteilung.toLowerCase());
@@ -28,7 +28,7 @@ public class Mitarbeiter {
 
     public int calculateBonus( int Firmenzugehoerigkeit, String abteilung) throws Exception {
         bonus = 0;
-
+        abteilung = abteilung.toLowerCase();
         Plausabilitaetspruefung(Firmenzugehoerigkeit);
 
         if (Firmenzugehoerigkeit >= 2 && Firmenzugehoerigkeit <4) {
@@ -46,13 +46,14 @@ public class Mitarbeiter {
         }
 
         if (bonus != 0) {
+
             switch (abteilung) {
                 case "sekretariat":
-                    bonus *= 2;
+                    bonus = bonus* 2;
                     break;
 
                 case "poststelle":
-                    bonus *= 2;
+                    bonus =bonus* 2;
                     break;
 
                 default:
@@ -64,7 +65,7 @@ public class Mitarbeiter {
 
     private void Plausabilitaetspruefung(int firmenzugehoerigkeit) throws Exception {
 
-        if (firmenzugehoerigkeit>75 && firmenzugehoerigkeit <0 )
+        if (firmenzugehoerigkeit>75 || firmenzugehoerigkeit <0 )
         {
             throw new Exception("Plausabilitätsprüfung nicht bestanden! Firmenzugehörigkeit muss zwischen 0 und 75 liegen!");
         }

@@ -6,13 +6,10 @@ import static org.junit.jupiter.api.Assertions.*;
 public class calculateBonusTest {
 
 
-    private Mitarbeiter mitarbeiter;
+    private Mitarbeiter mitarbeiter = new Mitarbeiter();
     private Integer yearsInCompany;
     private String mitarbeiterAbteilung;
 
-    public calculateBonusTest() throws Exception {
-        mitarbeiter = new Mitarbeiter();
-    }
 
     @BeforeEach
     void reset(){
@@ -196,7 +193,15 @@ public class calculateBonusTest {
     void testCalculateBonus_secondBonusLevel_76XYZ() throws Exception {
         yearsInCompany = 76;
         mitarbeiterAbteilung = "XYZ";
-        assertEquals(120,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
+
+        Exception exception = assertThrows(Exception.class, () -> {
+            mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung);
+        });
+
+        String expectedMessage = "Plausabilitätsprüfung nicht bestanden! Firmenzugehörigkeit muss zwischen 0 und 75 liegen!";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
     }
 
 

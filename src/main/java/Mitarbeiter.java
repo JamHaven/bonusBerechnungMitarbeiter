@@ -31,10 +31,10 @@ public class Mitarbeiter {
 
         Plausabilitaetspruefung(Firmenzugehoerigkeit);
 
-        if (Firmenzugehoerigkeit >= 2) {
+        if (Firmenzugehoerigkeit >= 2 && Firmenzugehoerigkeit <4) {
             //50%
             bonus = 50;
-        } else if (Firmenzugehoerigkeit >= 4) {
+        } else if (Firmenzugehoerigkeit >= 4 && Firmenzugehoerigkeit <10) {
             //80%
             bonus = 80;
         } else if (Firmenzugehoerigkeit >= 10) {

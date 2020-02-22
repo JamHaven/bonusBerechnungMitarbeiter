@@ -5,9 +5,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class calculateBonusTest {
 
+
     private Mitarbeiter mitarbeiter;
     private Integer yearsInCompany;
     private String mitarbeiterAbteilung;
+
+    public calculateBonusTest() throws Exception {
+        mitarbeiter = new Mitarbeiter();
+    }
 
     @BeforeEach
     void reset(){

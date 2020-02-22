@@ -3,11 +3,11 @@ public class Mitarbeiter {
     public String Abteilung;
     public int bonus;
 
-    public Mitarbeiter(int Firmenzugehoerigkeit, String Abteilung) throws Exception {
-        Plausabilitaetspruefung(Firmenzugehoerigkeit);
+    public Mitarbeiter() throws Exception {
+        //Plausabilitaetspruefung(Firmenzugehoerigkeit);
 
-        this.setAbteilung(Abteilung.toLowerCase());
-        this.setFirmenzugehoerigkeit(Firmenzugehoerigkeit);
+        //this.setAbteilung(Abteilung.toLowerCase());
+        //this.setFirmenzugehoerigkeit(Firmenzugehoerigkeit);
     }
 
     public int getFirmenzugehoerigkeit() {

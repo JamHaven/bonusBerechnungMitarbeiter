@@ -190,13 +190,11 @@ public class calculateBonusTest {
     }
 
     @Test
-    void testCalculateBonus_secondBonusLevel_76XYZ() throws Exception {
+    void testCalculateBonus_secondBonusLevel_76XYZ() {
         yearsInCompany = 76;
         mitarbeiterAbteilung = "XYZ";
 
-        Exception exception = assertThrows(Exception.class, () -> {
-            mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung);
-        });
+        Exception exception = assertThrows(Exception.class, () -> mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
 
         String expectedMessage = "Plausabilitätsprüfung nicht bestanden! Firmenzugehörigkeit muss zwischen 0 und 75 liegen!";
         String actualMessage = exception.getMessage();
@@ -210,9 +208,7 @@ public class calculateBonusTest {
         yearsInCompany = 76;
         mitarbeiterAbteilung = "Poststelle";
 
-        Exception exception = assertThrows(Exception.class, () -> {
-            mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung);
-        });
+        Exception exception = assertThrows(Exception.class, () -> mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
 
         String expectedMessage = "Plausabilitätsprüfung nicht bestanden! Firmenzugehörigkeit muss zwischen 0 und 75 liegen!";
         String actualMessage = exception.getMessage();
@@ -225,9 +221,7 @@ public class calculateBonusTest {
         yearsInCompany = 76;
         mitarbeiterAbteilung = "Sekretariat";
 
-        Exception exception = assertThrows(Exception.class, () -> {
-            mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung);
-        });
+        var exception = assertThrows(Exception.class, () -> mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
 
         String expectedMessage = "Plausabilitätsprüfung nicht bestanden! Firmenzugehörigkeit muss zwischen 0 und 75 liegen!";
         String actualMessage = exception.getMessage();
@@ -240,9 +234,7 @@ public class calculateBonusTest {
         yearsInCompany = 76;
         mitarbeiterAbteilung = "IT";
 
-        Exception exception = assertThrows(Exception.class, () -> {
-            mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung);
-        });
+        var exception = assertThrows(Exception.class, () -> mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
 
         String expectedMessage = "Plausabilitätsprüfung nicht bestanden! Firmenzugehörigkeit muss zwischen 0 und 75 liegen!";
         String actualMessage = exception.getMessage();
@@ -255,7 +247,7 @@ public class calculateBonusTest {
         yearsInCompany = -1;
         mitarbeiterAbteilung = "Poststelle";
 
-        Exception exception = assertThrows(Exception.class, () -> {
+        var exception = assertThrows(Exception.class, () -> {
             mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung);
         });
 
@@ -270,7 +262,7 @@ public class calculateBonusTest {
         yearsInCompany = -1;
         mitarbeiterAbteilung = "Sekretariat";
 
-        Exception exception = assertThrows(Exception.class, () -> {
+        var exception = assertThrows(Exception.class, () -> {
             mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung);
         });
 
@@ -285,7 +277,7 @@ public class calculateBonusTest {
         yearsInCompany = -1;
         mitarbeiterAbteilung = "IT";
 
-        Exception exception = assertThrows(Exception.class, () -> {
+        var exception = assertThrows(Exception.class, () -> {
             mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung);
         });
 
@@ -294,5 +286,34 @@ public class calculateBonusTest {
 
         assertTrue(actualMessage.contains(expectedMessage));
     }
+
+    @Test
+    void testPlausabilitaetspruefung_negativ() {
+        yearsInCompany = -1;
+
+        var exception = assertThrows(Exception.class, () -> {
+            mitarbeiter.plausabilitaetspruefung(yearsInCompany);
+        });
+
+        String expectedMessage = "Plausabilitätsprüfung nicht bestanden! Firmenzugehörigkeit muss zwischen 0 und 75 liegen!";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+    @Test
+    void testPlausabilitaetspruefung_tooHigh() {
+        yearsInCompany = 76;
+
+        var exception = assertThrows(Exception.class, () -> {
+            mitarbeiter.plausabilitaetspruefung(yearsInCompany);
+        });
+
+        String expectedMessage = "Plausabilitätsprüfung nicht bestanden! Firmenzugehörigkeit muss zwischen 0 und 75 liegen!";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
+
 
 }

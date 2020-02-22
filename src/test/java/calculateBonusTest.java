@@ -1,5 +1,3 @@
-import javafx.stage.Stage;
-import jdk.jfr.StackTrace;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,28 +17,28 @@ public class calculateBonusTest {
 
 
     @Test
-    void testCalculateBonus_noBonus_0Poststelle() {
+    void testCalculateBonus_noBonus_0Poststelle() throws Exception {
         yearsInCompany = 0;
         mitarbeiterAbteilung = "Poststelle";
         assertEquals(0,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_noBonus_0Sekretariat() {
+    void testCalculateBonus_noBonus_0Sekretariat() throws Exception {
         yearsInCompany = 0;
         mitarbeiterAbteilung = "Sekretariat";
         assertEquals(0,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_noBonus_0IT() {
+    void testCalculateBonus_noBonus_0IT() throws Exception {
         yearsInCompany = 0;
         mitarbeiterAbteilung = "IT";
         assertEquals(0,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_noBonus_1Sekretariat() {
+    void testCalculateBonus_noBonus_1Sekretariat() throws Exception {
         yearsInCompany = 1;
         mitarbeiterAbteilung = "Sekretariat";
         assertEquals(0,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
@@ -48,7 +46,7 @@ public class calculateBonusTest {
     }
 
     @Test
-    void testCalculateBonus_noBonus_1Poststelle() {
+    void testCalculateBonus_noBonus_1Poststelle() throws Exception {
         yearsInCompany = 1;
         mitarbeiterAbteilung = "Sekretariat";
         assertEquals(0,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
@@ -56,7 +54,7 @@ public class calculateBonusTest {
     }
 
     @Test
-    void testCalculateBonus_noBonus_1IT() {
+    void testCalculateBonus_noBonus_1IT() throws Exception {
         yearsInCompany = 1;
         mitarbeiterAbteilung = "IT";
         assertEquals(0,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
@@ -64,133 +62,133 @@ public class calculateBonusTest {
 
 
     @Test
-    void testCalculateBonus_firstBonusLevel_2Poststelle() {
+    void testCalculateBonus_firstBonusLevel_2Poststelle() throws Exception {
         yearsInCompany = 2;
         mitarbeiterAbteilung = "Poststelle";
         assertEquals(100,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_firstBonusLevel_2Sekretariat() {
+    void testCalculateBonus_firstBonusLevel_2Sekretariat() throws Exception {
         yearsInCompany = 2;
         mitarbeiterAbteilung = "Sekretariat";
         assertEquals(100,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_firstBonusLevel_2IT() {
+    void testCalculateBonus_firstBonusLevel_2IT() throws Exception {
         yearsInCompany = 2;
         mitarbeiterAbteilung = "IT";
         assertEquals(50,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_firstBonusLevel_3IT() {
+    void testCalculateBonus_firstBonusLevel_3IT() throws Exception {
         yearsInCompany = 3;
         mitarbeiterAbteilung = "IT";
         assertEquals(50,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_firstBonusLevel_3Sekretariat() {
+    void testCalculateBonus_firstBonusLevel_3Sekretariat() throws Exception {
         yearsInCompany = 3;
         mitarbeiterAbteilung = "Sekretariat";
         assertEquals(100,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_firstBonusLevel_3Poststelle() {
+    void testCalculateBonus_firstBonusLevel_3Poststelle() throws Exception {
         yearsInCompany = 3;
         mitarbeiterAbteilung = "Poststelle";
         assertEquals(100,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_secondBonusLevel_4Sekretariat() {
+    void testCalculateBonus_secondBonusLevel_4Sekretariat() throws Exception {
         yearsInCompany = 4;
         mitarbeiterAbteilung = "Sekretariat";
         assertEquals(160,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_secondBonusLevel_4Poststelle() {
+    void testCalculateBonus_secondBonusLevel_4Poststelle() throws Exception {
         yearsInCompany = 4;
         mitarbeiterAbteilung = "Poststelle";
         assertEquals(160,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_secondBonusLevel_4IT() {
+    void testCalculateBonus_secondBonusLevel_4IT() throws Exception {
         yearsInCompany = 4;
         mitarbeiterAbteilung = "IT";
         assertEquals(80,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_secondBonusLevel_9Poststelle() {
+    void testCalculateBonus_secondBonusLevel_9Poststelle() throws Exception {
         yearsInCompany = 9;
         mitarbeiterAbteilung = "Poststelle";
         assertEquals(160,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_secondBonusLevel_9Sekretariat() {
+    void testCalculateBonus_secondBonusLevel_9Sekretariat() throws Exception {
         yearsInCompany = 9;
         mitarbeiterAbteilung = "Sekretariat";
         assertEquals(160,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_secondBonusLevel_9IT() {
+    void testCalculateBonus_secondBonusLevel_9IT() throws Exception {
         yearsInCompany = 9;
         mitarbeiterAbteilung = "IT";
         assertEquals(80,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_secondBonusLevel_10IT() {
+    void testCalculateBonus_secondBonusLevel_10IT() throws Exception {
         yearsInCompany = 10;
         mitarbeiterAbteilung = "IT";
         assertEquals(120,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_secondBonusLevel_10Sekretariat() {
+    void testCalculateBonus_secondBonusLevel_10Sekretariat() throws Exception {
         yearsInCompany = 10;
         mitarbeiterAbteilung = "Sekretariat";
         assertEquals(240,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_secondBonusLevel_10Poststelle() {
+    void testCalculateBonus_secondBonusLevel_10Poststelle() throws Exception {
         yearsInCompany = 10;
         mitarbeiterAbteilung = "Poststelle";
         assertEquals(240,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_secondBonusLevel_75IT() {
+    void testCalculateBonus_secondBonusLevel_75IT() throws Exception {
         yearsInCompany = 75;
         mitarbeiterAbteilung = "IT";
         assertEquals(120,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_secondBonusLevel_75Sekretariat() {
+    void testCalculateBonus_secondBonusLevel_75Sekretariat() throws Exception {
         yearsInCompany = 75;
         mitarbeiterAbteilung = "Sekretariat";
         assertEquals(240,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_secondBonusLevel_75Poststelle() {
+    void testCalculateBonus_secondBonusLevel_75Poststelle() throws Exception {
         yearsInCompany = 75;
         mitarbeiterAbteilung = "Poststelle";
         assertEquals(240,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
     }
 
     @Test
-    void testCalculateBonus_secondBonusLevel_76XYZ() {
+    void testCalculateBonus_secondBonusLevel_76XYZ() throws Exception {
         yearsInCompany = 76;
         mitarbeiterAbteilung = "XYZ";
         assertEquals(120,mitarbeiter.calculateBonus(yearsInCompany, mitarbeiterAbteilung));
